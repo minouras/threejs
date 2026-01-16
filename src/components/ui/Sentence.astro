@@ -1,0 +1,27 @@
+---
+/* テキストセンテンスのブロック
+ * タグを選択可能（div,p,ul,ol etc...）
+ */
+import type { HTMLTag } from 'astro/types';
+
+type Props = {
+  as?: HTMLTag | any;
+  css?: string;
+};
+
+const { as, css } = Astro.props as Props;
+
+// レンダリング用の実体（文字列 or コンポーネント）
+const Tag = (as ?? 'div') as any;
+
+// CSS判定用に、文字列タグ名だけ取り出してワイドニング
+const tagName: HTMLTag | undefined = typeof Tag === 'string' ? (Tag as HTMLTag) : undefined;
+
+const spaceCss = tagName === 'ul' || tagName === 'ol' ? 'max_md:gap-y-[1px]' : 'gap-y-4';
+---
+
+<Tag
+  class=`text-sm md:text-base tracking-wider leading-[1.7] ${tagName !== 'p' ? 'flex flex-col': ''}  ${spaceCss}  ${css ? css : ''}`
+>
+  <slot />
+</Tag>

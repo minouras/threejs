@@ -1,0 +1,20 @@
+---
+/**
+ * 下層ページのヒーロー
+ * -------------------------------
+ * ページタイトル & 説明
+ * */
+---
+
+<div class=`relative w-full bg-(--color-background) px-[5.4vw] py-24`>
+  <div class="w-full">
+    <h1 class="mb-5 text-[clamp(20px,10.2vw,78px)] leading-[1.2] font-black text-(--color-primary)">
+      <slot name="title" />
+    </h1>
+    <div class="md:mr-auto md:ml-[45vw] md:w-fit">
+      <p class="text-base leading-relaxed font-medium text-(--color-primary) md:text-lg">
+        <slot name="desc" />
+      </p>
+    </div>
+  </div>
+</div>

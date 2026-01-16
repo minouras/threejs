@@ -47,11 +47,20 @@ const canonicalURL = !is404 && new URL(Astro.url.pathname, Astro.site);
     <meta property="og:locale" content="ja_JP" />
 
     {canonicalURL && <link rel="canonical" href={canonicalURL} />}
-    <!-- TODO:本番設置場所が分かり次第入力 -->
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- アイコン (Font awesome) -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/f478052b90.js" crossorigin="anonymous"></script>
     <Meta />
   </head>
 
-  <body class="min-h-[100svh] bg-white">
+  <body class="min-h-svh bg-white">
     <div class="b-body">
       <Header />
 

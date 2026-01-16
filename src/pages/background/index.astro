@@ -1,0 +1,60 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Section from '@/components/layout/Section.astro';
+import Wrapper from '@/components/layout/Wrapper.astro';
+import HeroAtInner from '@/components/base/HeroAtInner.astro';
+import Sentence from '@/components/ui/Sentence.astro';
+// UI
+import GradientAnime from '@/components/ui/background/GradientAnime.astro';
+
+/**
+ * 背景の表現
+ * */
+---
+
+<Layout title="背景の表現">
+  {
+    /*-----------------------------
+	# ヒーロー
+	-----------------------------*/
+  }
+  <HeroAtInner>
+    <span slot="title">背景表現</span>
+    <span slot="desc"> cssによる背景スタイル・アニメーション等</span>
+  </HeroAtInner>
+  {
+    /*-----------------------------
+	# グラデーションアニメ背景
+	-----------------------------*/
+  }
+  <GradientAnime>
+    <Section id="gradation-anime">
+      <Wrapper>
+        <h1 class="mb-7 text-2xl font-bold text-white/70 md:mb-10 md:text-3xl">
+          背景のグラデーションが<br class="md:hidden" />アニメーションする
+        </h1>
+        <div class="max-w-[580px] rounded-lg bg-white/50 px-[4%] py-5 md:py-8">
+          <Sentence as="div">
+            <p>背景グラデーションがアニメーションします。</p>
+            <p>
+              background-size
+              を大きめに取り、その範囲内でグラデーション背景を動かしているだけのシンプルな構成です。<br
+              />(<a
+                class="text-(--color-link) underline"
+                href="https://junpei-sugiyama.com/gradation-animation/"
+                target="_blank">参考サイト</a
+              >)
+            </p>
+            <p>
+              より複雑なグラデーションやアニメーションを実装したい場合は、<a
+                href="https://www.mshr.app/"
+                class="text-(--color-link) underline"
+                target="_blank">こちらのジェネレーターサイト</a
+              >が便利です。
+            </p>
+          </Sentence>
+        </div>
+      </Wrapper>
+    </Section>
+  </GradientAnime>
+</Layout>

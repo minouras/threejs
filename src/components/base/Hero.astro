@@ -1,25 +1,23 @@
 ---
-import type { HTMLTag, Polymorphic } from 'astro/types';
-
-type Props<Tag extends HTMLTag = 'h1'> = Polymorphic<{
-  as: Tag;
-  title: string;
-}>;
-
-const { as: Tag = 'h1', title } = Astro.props;
-const baseDir = import.meta.env.BASE_URL;
 /*
  * ファーストビューで見せたい画像にはjs-preloadクラスを付与しておく
  * 動画を含む場合はloading.tsのカスタマイズが必要
  */
 ---
 
-<div class=`relative h-[60rem] w-full bg-blue-900`>
-  <div class="absolute top-0 left-0 flex h-full w-full items-center justify-center">
-    <Tag class="text-3xl font-bold text-white">{title}</Tag>
-  </div>
-  <div class="block h-full w-full [&_img]:block [&_img]:h-full [&_img]:w-full [&_img]:object-cover">
-    <!-- <Image src={topKv} alt="" class="object-cover w-full h-full" /> -->
-    <img class="js-preload h-full w-full object-cover" src="assets/img/other/dummy.jpg" alt="" />
+<div class=`relative w-full bg-(--color-background) px-[5.4vw] py-24`>
+  <div class="w-full">
+    <h1
+      class="b-font-roboto mb-5 text-[clamp(20px,11.2vw,88px)] leading-[1.2] font-black text-(--color-primary)"
+    >
+      WEB UI & UX<br /><span class="tracking-wide">CATALOG</span>
+    </h1>
+    <div class="md:mr-auto md:ml-[45vw] md:w-fit">
+      <p class="text-base leading-relaxed font-medium text-(--color-primary) md:text-lg">
+        WEBサイトに使える UI / UX パーツ、デザインのカタログです。<br
+        />テーマ・種類ごとにページを分けていきます。<br
+        />Astroフレームワークのテンプレートを使う事を想定しています。
+      </p>
+    </div>
   </div>
 </div>

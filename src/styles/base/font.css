@@ -1,20 +1,7 @@
-/* @font-face {
+.b-font-roboto {
   font-style: normal;
-  font-weight: normal;
-  src: url('/assets/font/HigureGothic-Medium.woff') format('woff');
-  font-family: 'HigureGothic';
+  font-family: 'Roboto', sans-serif;
 }
-@font-face {
-  font-style: normal;
-  font-weight: bold;
-  src: url('/assets/font/HigureGothic-Bold.woff') format('woff');
-  font-family: 'HigureGothic';
-} */
-
-/* .b-font-higure {
-  font-style: normal;
-  font-family: 'HigureGothic', sans-serif;
-} */
 
 .b-font-noto {
   font-family: 'Noto Sans JP', sans-serif;

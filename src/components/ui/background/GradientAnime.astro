@@ -1,0 +1,39 @@
+---
+/**
+ * 背景グラデーションがアニメーション
+ * */
+---
+
+<div class="backgrounde-style relative h-full w-full">
+  <slot />
+</div>
+
+<style>
+  .backgrounde-style {
+    animation: gradientShift 15s ease infinite;
+    background: linear-gradient(
+      45deg,
+      #000000,
+      #2a2a2a,
+      #04151a,
+      #000000,
+      #0c1f24,
+      #000000,
+      #042326
+    );
+    background-size: 400% 400%;
+    overflow: hidden;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
