@@ -1,14 +1,22 @@
 # 概要
 
-three.jsで3D表現
+Astroテンプレで利用できるUIカタログ
 
 ## コア
+
 ```
 Astro
 tailwindCSS
 TypeScript
 ```
 
+## 導入したいもの
+
+```
+three.js（3D表現）
+swiper （スライダー）
+gsap (アニメーション)
+```
 
 # 構成
 
