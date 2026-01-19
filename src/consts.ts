@@ -1,13 +1,13 @@
 /* TODO: サイト基本情報を入力*/
 /*サイトタイトル*/
-export const SITE_TITLE = 'サイトのタイトル';
+export const SITE_TITLE = 'UI / UX カタログ';
 
 /*サイトディスクリプション*/
 export const SITE_DESC =
-  'サイトの共通ディスクリプションを記述してください。ページ別に異なるディスクリプションを設定する場合は、ページファイルのLayoutタグで上書きしてください';
+  'Astroテンプレートで使う為のUI / UX カタログ。今まで実装してきたもののログも兼ねて。';
 
-/*ナビゲーション*/
-export const SITE_NAV = [
+/*ページインデックス*/
+export const PAGE_INDEX = [
   {
     name: 'テキスト',
     href: 'text',
@@ -19,6 +19,20 @@ export const SITE_NAV = [
   {
     name: '背景表現',
     href: 'background',
+    content: [
+      {
+        id: 'gradation-anime',
+        labels: ['グラデーション', 'グラデーションアニメ'],
+      },
+      {
+        id: 'rising-anime',
+        labels: ['上昇アニメ', 'svgアニメ', '縦に無限ループ'],
+      },
+      {
+        id: 'triangle-dot',
+        labels: ['三角形のドット', 'クロスドット'],
+      },
+    ],
   },
   {
     name: 'スライド',

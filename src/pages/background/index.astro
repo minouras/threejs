@@ -6,6 +6,8 @@ import HeroAtInner from '@/components/base/HeroAtInner.astro';
 import Sentence from '@/components/ui/Sentence.astro';
 // UI
 import GradientAnime from '@/components/ui/background/GradientAnime.astro';
+import RisingAnime from '@/components/ui/background/RisingAnime.astro';
+import TriangleDot from '@/components/ui/background/TriangleDot.astro';
 
 /**
  * 背景の表現
@@ -63,4 +65,46 @@ import GradientAnime from '@/components/ui/background/GradientAnime.astro';
 	# svgオブジェクトが浮遊する
 	-----------------------------*/
   }
+  <RisingAnime>
+    <Section id="rising-anime">
+      <Wrapper>
+        <div class="h-[15vh] bg-white">
+          <p>テキスト</p>
+        </div>
+      </Wrapper>
+    </Section>
+  </RisingAnime>
+
+  {
+    /*-----------------------------
+	# 三角形のクロスドット
+	-----------------------------*/
+  }
+  <TriangleDot>
+    <Section id="triangle-dot">
+      <Wrapper>
+        <h1
+          class="mb-7 text-center text-2xl font-bold text-(--color-secondary) md:mb-10 md:text-3xl"
+        >
+          ドットが三角形のクロスドット
+        </h1>
+        <div>
+          <div class="mx-auto max-w-[580px] rounded-lg bg-white/50 px-[4%] py-5 md:py-8">
+            <Sentence as="div">
+              <p>
+                丸のドット柄であれば、<a
+                  class="text-(--color-link) underline"
+                  href="https://webspe.net/tools/polka-dots/">こちらのジェネレーター</a
+                >を使うのが早いです。
+              </p>
+              <p>
+                この三角形のクロスドットは、background-image: url()
+                に直接svg形式でリピートする画像を記述しています。<br />svgコードはAIで出力しました。
+              </p>
+            </Sentence>
+          </div>
+        </div>
+      </Wrapper>
+    </Section>
+  </TriangleDot>
 </Layout>

@@ -1,0 +1,125 @@
+---
+/**
+ * UI：背景
+ * 背景のSVGオブジェクトが無限ループで上昇する。
+ * ----------------------------------------------
+ * position:stickyで背景固定するので、競合cssに気を付ける
+ * */
+---
+
+<div class="relative h-screen w-screen overflow-hidden">
+  <div class="loop-belt--front">
+    <div class="content">
+      <svg viewBox="0 0 1606 1387">
+        <defs
+          ><linearGradient id="g1"
+            ><stop offset="0" stop-color="#408efd"></stop><stop offset="1" stop-color="#0a0c45"
+            ></stop></linearGradient
+          ></defs
+        >
+        <path fill="url(#g1)" d="M439,440s-66,275-90,375c-108-60-217-121-326-181L145,51l294,388Z"
+        ></path>
+        <path fill="url(#g1)" d="M1196,929s-274,68-374,94c61,108,123,216,184,325l581-128-391-291Z"
+        ></path>
+      </svg>
+    </div>
+    <div class="content">
+      <svg viewBox="0 0 1606 1387">
+        <use href="#g1"></use><path
+          fill="url(#g1)"
+          d="M439,440s-66,275-90,375c-108-60-217-121-326-181L145,51l294,388Z"></path><path
+          fill="url(#g1)"
+          d="M1196,929s-274,68-374,94c61,108,123,216,184,325l581-128-391-291Z"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="loop-belt--back">
+    <div class="content">
+      <svg viewBox="0 0 1606 2030">
+        <path fill="url(#g1)" d="M753,464s-277,53-379,72c10-124,20-248,30-372L985,35l-232,429Z"
+        ></path>
+      </svg>
+    </div>
+    <div class="content">
+      <svg viewBox="0 0 1606 2030">
+        <path fill="url(#g1)" d="M753,464s-277,53-379,72c10-124,20-248,30-372L985,35l-232,429Z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  /* アニメーション用のベルト（コンテンツ2つ分） */
+  .loop-belt--front,
+  .loop-belt--back {
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  .loop-belt--front {
+    z-index: 2;
+    animation: loopFront 20s linear infinite;
+  }
+
+  .loop-belt--back {
+    opacity: 0.5;
+    z-index: 1;
+    animation: loopBack 35s linear infinite;
+  }
+
+  /* 1つ分のコンテンツ単位：必ず 100vh に固定 */
+  .loop-belt_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* 上昇アニメ：100vh分だけ上に動かしてリセットする */
+  @keyframes loopFront {
+    0% {
+      transform: translateY(0) rotateY(0deg);
+    }
+    50% {
+      rotatey: (15deg);
+    } /* 途中でひねりを入れる */
+    100% {
+      transform: translateY(-100vh) rotateY(0deg);
+    }
+  }
+
+  @keyframes loopBack {
+    0% {
+      transform: translateY(0) scale(0.9) rotateY(0deg);
+    }
+    50% {
+      transform: translateY(-50vh) scale(0.95) rotateY(-10deg);
+    }
+    100% {
+      transform: translateY(-100vh) scale(0.9) rotateY(0deg);
+    }
+  }
+
+  svg {
+    /* animation: hueRotate 10s linear infinite; */
+    width: 80%;
+    height: auto;
+  }
+
+  .main-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+  }
+</style>

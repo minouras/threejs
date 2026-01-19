@@ -1,5 +1,5 @@
 ---
-import { SITE_NAV } from '@/consts';
+import { PAGE_INDEX } from '@/consts';
 import HamburgerBtn from './HamburgerBtn.astro';
 import HamburgerNav from './HamburgerNav.astro';
 const baseDir = import.meta.env.BASE_URL;
@@ -21,7 +21,7 @@ const baseDir = import.meta.env.BASE_URL;
   <HamburgerNav>
     <ul class="divide-y divide-zinc-800">
       {
-        SITE_NAV.map((nav) => (
+        PAGE_INDEX.map((nav) => (
           <li class="js-gnav__item">
             <a class="block py-3 text-sm transition hover:text-zinc-100" href={nav.href}>
               {nav.name}
