@@ -2,7 +2,7 @@
 
 ---
 
-<div class="hamburger-nav-wrapper bg-slate-400 pt-20" id="js-gnav">
+<div class="hamburger-nav-wrapper bg-(--color-primary) pt-20" id="js-gnav">
   <slot />
 </div>
 
@@ -15,7 +15,8 @@
     transform: translateX(110%);
     z-index: 190;
     transition: transform 0.1s;
-    width: 100%;
+    width: 80%;
+    max-width: 400px;
     height: 100dvh;
     overflow-y: auto;
   }

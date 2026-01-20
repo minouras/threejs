@@ -69,8 +69,19 @@ import ParticleAnime from '@/components/ui/background/ParticleAnime.astro';
   <RisingAnime>
     <Section id="rising-anime">
       <Wrapper>
-        <div class="h-[15vh] bg-white">
-          <p>テキスト</p>
+        <div class="mb-4 bg-white/50 px-[5%] py-5">
+          <h1 class="text-center text-lg font-bold md:text-3xl">上昇アニメーション背景</h1>
+        </div>
+        <div class="bg-white/50 px-[5%] py-5">
+          <Sentence as="div">
+            <p>
+              アニメーション背景は100vh（固定値ならなんでも）でコンテンツの終わりまでstickyで固定されます。
+            </p>
+            <p>
+              アニメーションは同じレイヤーを2つずつ用意してループさせています。<br
+              />奥行きを出す為に2種類の速度違いレイヤーを設置しているので、4つのレイヤーで構成されています。
+            </p>
+          </Sentence>
         </div>
       </Wrapper>
     </Section>

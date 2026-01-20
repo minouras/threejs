@@ -6,10 +6,12 @@ import { PAGE_INDEX } from '@/consts';
 ---
 
 <div class="">
-  <ul class="flex flex-col gap-y-8">
+  <ul
+    class="flex flex-col gap-y-8 md:gap-y-0 md:divide-y md:divide-dashed md:divide-(--color-secondary)"
+  >
     {
       PAGE_INDEX.map((page) => (
-        <li class="grid grid-cols-1 gap-y-4 md:grid-cols-[20%_75%] md:gap-x-[5%]">
+        <li class="grid grid-cols-1 gap-y-4 md:grid-cols-[25%_70%] md:gap-x-[5%] md:py-6">
           <div>
             <a
               class="relative block w-full rounded-full border-2 border-(--color-secondary) bg-white py-2 text-center"
@@ -19,7 +21,7 @@ import { PAGE_INDEX } from '@/consts';
               <span class="absolute top-1/2 left-2 block h-3 w-3 -translate-y-1/2 rounded-full bg-(--color-secondary)" />
             </a>
           </div>
-          <div class="flex flex-wrap gap-3 md:gap-4">
+          <div class="flex flex-wrap gap-3 md:items-start md:gap-4 md:pt-2">
             {page.content?.map((cont) => (
               <a
                 class="w-fit rounded-full border border-(--color-secondary) bg-white px-4 py-1"

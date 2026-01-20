@@ -30,11 +30,9 @@ body {
 
 .b-body {
   position: relative;
-  visibility: hidden;
-  opacity: 0;
   transition: opacity 0.4s ease-in-out;
   padding: 0;
-  overflow: hidden;
+  overflow: clip;
 }
 @media (min-width: theme(--breakpoint-md)) {
   .b-body {
@@ -42,9 +40,18 @@ body {
   }
 }
 
-html.is-loaded .b-body {
+/* 旧ローディングVer */
+/* html.is-loaded .b-body {
   visibility: visible;
   opacity: 1;
+} */
+/* 新ローディングVer */
+html.page-loading body {
+  opacity: 0;
+}
+html.page-loaded body {
+  opacity: 1;
+  transition: opacity 0.3s;
 }
 
 h1,

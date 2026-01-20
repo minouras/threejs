@@ -19,11 +19,11 @@ const baseDir = import.meta.env.BASE_URL;
     <HamburgerBtn />
   </nav>
   <HamburgerNav>
-    <ul class="divide-y divide-zinc-800">
+    <ul class="divide-y divide-white">
       {
         PAGE_INDEX.map((nav) => (
           <li class="js-gnav__item">
-            <a class="block py-3 text-sm transition hover:text-zinc-100" href={nav.href}>
+            <a class="block py-3 pl-3 text-sm font-semibold text-white transition" href={nav.href}>
               {nav.name}
             </a>
           </li>

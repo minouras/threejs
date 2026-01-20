@@ -1,0 +1,86 @@
+---
+const baseDir = import.meta.env.BASE_URL;
+---
+
+<!-- ローディングオーバーレイ（初回のみ表示） -->
+<div id="js-loading-overlay" class="loading-overlay">
+  <div class="loading-content">
+    <!-- 簡易遷移時の白マスク（アニメでもOK,遷移短いと邪魔なので外してる） -->
+    <div class="logo-container"></div>
+
+    <!-- ミニマルなプログレスバー -->
+    <div class="progress-container">
+      <div id="js-progress-bar" class="progress-bar"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ページ読み込み中のチラつき防止 */
+  :global(html.page-loading) {
+    overflow: hidden;
+  }
+
+  :global(html.page-loading body) {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+
+  :global(html.page-loaded body) {
+    opacity: 1;
+  }
+
+  /* ローディングオーバーレイ */
+  .loading-overlay {
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    z-index: 9999;
+    transition: opacity 0.3s ease-out;
+    inset: 0;
+    background: white;
+  }
+
+  .loading-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .loading-content {
+    text-align: center;
+  }
+
+  .logo-container {
+    animation: float 2s ease-in-out infinite;
+    margin-bottom: 2rem;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* プログレスバー */
+  .progress-container {
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 200px;
+    height: 2px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    height: 100%;
+  }
+</style>

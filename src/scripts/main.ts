@@ -1,6 +1,7 @@
 import { headerScroll } from './components/headerScroll';
 import { inviewScroll } from './components/inviewScroll';
 import { Loading } from './components/loading';
+import { ModernPageLoader } from './components/loadingNew';
 import { SetGnav } from './components/setGnav';
 import { SmoothScroll } from './components/SmoothScroll';
 // 任意のモジュール
@@ -8,7 +9,8 @@ import { initParticles } from './components/particle';
 
 // loading.ts
 document.addEventListener('DOMContentLoaded', () => {
-  new Loading();
+  // new Loading();
+  new ModernPageLoader();
   new SetGnav();
   new headerScroll();
   // ※注意事項を読むこと
