@@ -1,0 +1,39 @@
+---
+/**
+ * HOMEのページインデックス
+ * */
+import { PAGE_INDEX } from '@/consts';
+---
+
+<div class="">
+  <ul class="flex flex-col gap-y-8">
+    {
+      PAGE_INDEX.map((page) => (
+        <li class="grid grid-cols-1 gap-y-4 md:grid-cols-[20%_75%] md:gap-x-[5%]">
+          <div>
+            <a
+              class="relative block w-full rounded-full border-2 border-(--color-secondary) bg-white py-2 text-center"
+              href={page.href}
+            >
+              <span class="text-base font-medium md:text-lg">{page.name}</span>
+              <span class="absolute top-1/2 left-2 block h-3 w-3 -translate-y-1/2 rounded-full bg-(--color-secondary)" />
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-3 md:gap-4">
+            {page.content?.map((cont) => (
+              <a
+                class="w-fit rounded-full border border-(--color-secondary) bg-white px-4 py-1"
+                href={`${page.href}#${cont.id}`}
+              >
+                <span class="whitespace-nowrap">
+                  <span class="mr-px font-bold text-(--color-secondary)">#</span>
+                  {cont.label}
+                </span>
+              </a>
+            ))}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>

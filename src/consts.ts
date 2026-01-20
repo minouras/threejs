@@ -26,19 +26,19 @@ export const PAGE_INDEX = [
     content: [
       {
         id: 'gradation-anime',
-        labels: ['グラデーション', 'グラデーションアニメ'],
+        label: 'グラデーションアニメ',
       },
       {
         id: 'rising-anime',
-        labels: ['上昇アニメ', 'svgアニメ', '縦に無限ループ'],
+        label: '上昇アニメ',
       },
       {
         id: 'particle',
-        labels: ['パーティクル', 'tsParticle', 'マウスオーバーアニメ'],
+        label: 'パーティクル',
       },
       {
         id: 'triangle-dot',
-        labels: ['三角形のドット', 'クロスドット'],
+        label: '三角形のクロスドット',
       },
     ],
   },
@@ -51,3 +51,6 @@ export const PAGE_INDEX = [
     href: 'svg',
   },
 ];
+
+/** コンテンツ キーワード */
+export const KEYWORDS = [];
