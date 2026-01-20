@@ -5,6 +5,7 @@ import Wrapper from '@/components/layout/Wrapper.astro';
 import HeroAtInner from '@/components/base/HeroAtInner.astro';
 import Sentence from '@/components/ui/Sentence.astro';
 import NeonText from '@/components/ui/text/NeonText.astro';
+import NeonBlock from '@/components/ui/contents/NeonBlock.astro';
 
 /**
  * コンテンツ カード・ブロック等の表現
@@ -30,9 +31,18 @@ import NeonText from '@/components/ui/text/NeonText.astro';
   <Section id="neon" css="bg-black">
     <Wrapper>
       <NeonText as="h1">
-        <span class="text-2xl font-bold md:text-3xl">ネオンボーダー</span>
+        <span class="text-2xl font-bold md:text-3xl">ネオン看板風</span>
       </NeonText>
-      <div class="mt-6 grid grid-cols-1 gap-x-[4%] gap-y-6 md:grid-cols-3 xl:grid-cols-4"></div>
+      <div class="mt-6 grid grid-cols-1 gap-x-[5%] gap-y-6 md:grid-cols-3">
+        <NeonBlock>
+          <NeonText as="p" css="text-center">
+            <span class="text-xl">ネオンボーダーカード</span>
+          </NeonText>
+          <Sentence as="p" css="mt-4 text-white">
+            ネオン看板風のカード。<br />基準色をプロパティに設定して使います。<br />
+          </Sentence>
+        </NeonBlock>
+      </div>
     </Wrapper>
   </Section>
 </Layout>

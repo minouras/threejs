@@ -6,17 +6,22 @@
  * - as：htmlタグ
  * */
 import type { HTMLTag, Polymorphic } from 'astro/types';
+import type { string } from 'astro:schema';
 
 type Props<Tag extends HTMLTag = 'h1'> = Polymorphic<{
   as: Tag;
   color?: string;
   txtColor?: string;
+  css?: string;
 }>;
 
-const { as: Tag = 'h1', color = '#ff0040', txtColor = '#fff' } = Astro.props;
+const { as: Tag = 'h1', color = '#ff0040', txtColor = '#fff', css = '' } = Astro.props;
 ---
 
-<Tag class="neon-text" style={`--neon-color: ${color}; --neon-text-color: ${txtColor}`}>
+<Tag
+  class=`neon-text ${css && css}`
+  style={`--neon-color: ${color}; --neon-text-color: ${txtColor}`}
+>
   <slot />
 </Tag>
 

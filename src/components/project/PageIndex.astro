@@ -22,7 +22,7 @@ import { PAGE_INDEX } from '@/consts';
             </a>
           </div>
           <div class="flex flex-wrap gap-3 md:items-start md:gap-4 md:pt-2">
-            {page.content?.map((cont) => (
+            {page.contents?.map((cont) => (
               <a
                 class="w-fit rounded-full border border-(--color-secondary) bg-white px-4 py-1"
                 href={`${page.href}#${cont.id}`}

@@ -11,6 +11,7 @@ export const PAGE_INDEX = [
   {
     name: 'テキスト',
     href: 'text',
+    contents: [{ id: 'neon', label: 'ネオン看板風' }],
   },
   {
     name: 'ボタン',
@@ -19,11 +20,12 @@ export const PAGE_INDEX = [
   {
     name: 'コンテンツ',
     href: 'contents',
+    contents: [{ id: 'neon', label: 'ネオン看板風' }],
   },
   {
     name: '背景表現',
     href: 'background',
-    content: [
+    contents: [
       {
         id: 'gradation-anime',
         label: 'グラデーションアニメ',
