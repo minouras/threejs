@@ -1,0 +1,95 @@
+---
+/**
+ * UI：コンテンツカード
+ * 2色のネオンが動く
+ * - color：カラーコード or CSS変数（基準色）
+ * - as：htmlタグ
+ * */
+---
+
+<div class="neon-box px-[6.5%] py-8">
+  <svg class="neon-stroke" aria-hidden="true">
+    <defs>
+      <!-- 1本目：青系 -->
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00e5ff"></stop>
+        <stop offset="100%" stop-color="#00e5ff" stop-opacity="0.2"></stop>
+      </linearGradient>
+
+      <!-- 2本目：ピンク系 -->
+      <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ff2bd6"></stop>
+        <stop offset="100%" stop-color="#ff2bd6" stop-opacity="0.2"></stop>
+      </linearGradient>
+    </defs>
+
+    <!-- “borderの上”をなぞる線：2本 -->
+    <rect class="dash dash1"></rect>
+    <rect class="dash dash2"></rect>
+  </svg>
+
+  <slot />
+</div>
+
+<style>
+  .neon-box {
+    position: relative;
+    border-radius: 16px;
+    background: #0b0b10;
+    overflow: hidden; /* はみ出し防止（必要なら） */
+  }
+
+  /* SVGをdivと同サイズで重ねる */
+  .neon-stroke {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  /* rectを“枠線”として使うための共通設定 */
+  .neon-stroke .dash {
+    vector-effect: non-scaling-stroke; /* 拡大縮小で線幅が変わりにくい */
+
+    /* ネオン発光（軽め） */
+    filter: drop-shadow(0 0 6px currentColor) drop-shadow(0 0 14px currentColor);
+    fill: none;
+
+    /* rectをボックス内側に少しだけ inset する（線幅の半分ぶんが基本） */
+    x: 1.5px;
+    y: 1.5px;
+    rx: 16px; /* 角丸はdivと合わせる */
+    ry: 16px;
+
+    /* “短い線 + 空白” を繰り返す（ここが“間隔を空けたライン”） */
+    stroke-dasharray: 18 180;
+
+    stroke-linecap: round;
+    stroke-width: 3px; /* ボーダーの太さ */
+    width: calc(100% - 3px);
+    height: calc(100% - 3px);
+  }
+
+  /* 1本目 */
+  .neon-stroke .dash1 {
+    animation: dash-move 2s linear infinite;
+    stroke: url(#g1);
+    color: #00e5ff;
+  }
+
+  /* 2本目（位相をずらす＝間隔を空けて別の場所を走る） */
+  .neon-stroke .dash2 {
+    opacity: 0.95;
+    animation: dash-move 2s linear infinite;
+    animation-delay: -1s; /* ちょうど半周ずらしたいなら速度の半分 */
+    stroke: url(#g2);
+    color: #ff2bd6;
+  }
+
+  @keyframes dash-move {
+    to {
+      stroke-dashoffset: -198;
+    } /* dasharrayの合計(18+180=198)を目安に */
+  }
+</style>

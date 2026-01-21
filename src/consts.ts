@@ -51,6 +51,7 @@ export const PAGE_INDEX = [
   {
     name: 'スライド',
     href: 'slide',
+    contents: [{ id: 'swiper-effect', label: 'Swiperエフェクト' }],
   },
   {
     name: 'svgアニメ',

@@ -6,6 +6,7 @@ import HeroAtInner from '@/components/base/HeroAtInner.astro';
 import Sentence from '@/components/ui/Sentence.astro';
 import NeonText from '@/components/ui/text/NeonText.astro';
 import NeonBlock from '@/components/ui/contents/NeonBlock.astro';
+import NeonBlockAnime from '@/components/ui/contents/NeonBlockAnime.astro';
 
 /**
  * コンテンツ カード・ブロック等の表現
@@ -33,7 +34,7 @@ import NeonBlock from '@/components/ui/contents/NeonBlock.astro';
       <NeonText as="h1">
         <span class="text-2xl font-bold md:text-3xl">ネオン看板風</span>
       </NeonText>
-      <div class="mt-6 grid grid-cols-1 gap-x-[5%] gap-y-6 md:grid-cols-3">
+      <div class="mt-6 grid grid-cols-1 gap-x-[5%] gap-y-6 md:mt-8 md:grid-cols-3">
         <NeonBlock>
           <NeonText as="p" css="text-center">
             <span class="text-xl">ネオンボーダーカード</span>
@@ -42,6 +43,12 @@ import NeonBlock from '@/components/ui/contents/NeonBlock.astro';
             ネオン看板風のカード。<br />基準色をプロパティに設定して使います。<br />
           </Sentence>
         </NeonBlock>
+        <NeonBlockAnime>
+          <span class="text-xl">ネオンボーダーが動く</span>
+          <Sentence as="p" css="mt-4 text-white">
+            2色のネオンが外周をアニメーションします。
+          </Sentence>
+        </NeonBlockAnime>
       </div>
     </Wrapper>
   </Section>
