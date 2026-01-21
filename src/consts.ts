@@ -50,7 +50,7 @@ export const PAGE_INDEX = [
   },
   {
     name: 'スライド',
-    href: '#slide',
+    href: 'slide',
   },
   {
     name: 'svgアニメ',

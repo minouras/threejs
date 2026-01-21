@@ -1,101 +1,72 @@
-// npm swiper で swiperをインストールする
+import Swiper from 'swiper';
+import {
+  Autoplay,
+  Pagination,
+  EffectFade,
+  EffectFlip,
+  EffectCards,
+  Navigation,
+} from 'swiper/modules';
 
-// import Swiper from 'swiper';
-// import { Autoplay, Pagination, EffectFade, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import 'swiper/css/effect-flip';
+import 'swiper/css/effect-cards';
 
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// import 'swiper/css/effect-fade';
+/**
+ * 1枚エフェクト：フリップ
+ * */
+export const setFlipSwiper = (trg: string) => {
+  const targets = document.querySelectorAll<HTMLElement>(trg);
+  if (targets.length <= 0) return;
 
-// スライダー
-// export const nameSwipe = () => {
-//   return new Swiper('.className', {
-//     modules: [Pagination, Navigation],
-//     slidesPerView: 1.3,
-//     centeredSlides: true,
-//     loop: false,
-//     speed: 700,
-//     breakpoints: {
-//       768: {
-//         slidesPerView: 5,
-//         spaceBetween: 0,
-//         centeredSlides: false,
-//       },
-//     },
-//     pagination: {
-//       el: '.c-swiper-namePagenation',
-//     },
-//     navigation: {
-//       nextEl: '.c-swiper-nameButton-next',
-//       prevEl: '.c-swiper-nameButton-prev',
-//     },
-//   });
-// };
+  targets.forEach((target) => {
+    const pager = document.createElement('div');
+    pager.classList.add('text-center');
+    target.insertAdjacentElement('afterend', pager);
 
-// スライダー
-// export const nameSwipe = () => {
-//   return new Swiper('.className', {
-//     modules: [Pagination, Navigation],
-//     slidesPerView: 1.3,
-//     centeredSlides: true,
-//     loop: false,
-//     speed: 700,
-//     breakpoints: {
-//       768: {
-//         slidesPerView: 5,
-//         spaceBetween: 0,
-//         centeredSlides: false,
-//       },
-//     },
-//     pagination: {
-//       el: '.c-swiper-namePagenation',
-//     },
-//     navigation: {
-//       nextEl: '.c-swiper-nameButton-next',
-//       prevEl: '.c-swiper-nameButton-prev',
-//     },
-//   });
-// };
+    return new Swiper(target, {
+      modules: [Pagination, EffectFlip, Autoplay],
+      slidesPerView: 1,
+      effect: 'flip',
+      loop: true,
+      speed: 600,
+      pagination: {
+        el: pager,
+      },
+      autoplay: {
+        delay: 2500,
+      },
+    });
+  });
+};
 
-// 特殊なスライダー
-// export const initHeroSwiper = () => {
-//   // メインスライダー
-//   const kvSwiper = new Swiper('.js-kvSwiper', {
-//     modules: [Autoplay, EffectFade, Pagination, Navigation],
-//     effect: 'fade',
-//     loop: true,
-//     speed: 700,
-//     autoplay: {
-//       delay: 6000,
-//       disableOnInteraction: false,
-//     },
-//     pagination: {
-//       el: '.c-swiper-kvPagenation',
-//     },
-//     navigation: {
-//       nextEl: '.c-swiper-kvButton-next',
-//       prevEl: '.c-swiper-kvButton-prev',
-//     },
-//   });
-//   // // 連動テキスト
-//   const kvTxtSwiper = new Swiper('.js-kvTxtSwiper', {
-//     modules: [EffectFade],
-//     effect: 'fade',
-//     speed: 700,
-//     allowTouchMove: false,
-//     fadeEffect: {
-//       crossFade: true,
-//     },
-//   });
+/**
+ * 1枚エフェクト：カード
+ * */
+export const setCardsSwiper = (trg: string) => {
+  const targets = document.querySelectorAll<HTMLElement>(trg);
+  if (targets.length <= 0) return;
 
-//   // kvSwiperがスライドしたときにkvTxtSwiperも同じスライドに移動
-//   kvSwiper.on('slideChange', () => {
-//     kvTxtSwiper.slideTo(kvSwiper.realIndex);
-//   });
+  targets.forEach((target) => {
+    const pager = document.createElement('div');
+    pager.classList.add('text-center');
+    target.insertAdjacentElement('afterend', pager);
 
-//   // 初期表示を揃えるために最初のスライドに合わせる
-//   kvTxtSwiper.slideTo(kvSwiper.realIndex);
-
-//   return { kvSwiper, kvTxtSwiper };
-// };
+    return new Swiper(target, {
+      modules: [Pagination, EffectCards, Autoplay],
+      slidesPerView: 1,
+      effect: 'cards',
+      loop: true,
+      speed: 600,
+      pagination: {
+        el: pager,
+      },
+      autoplay: {
+        delay: 2500,
+      },
+    });
+  });
+};

@@ -41,6 +41,13 @@
   ------------------------------------ */
   --color-dark: #333333;
   --color-gray: #808080;
+
+  --color-primary: #b0e0e6;
+  --color-secondary: #f59e0b;
+  --color-background: #ffffff;
+  --color-text: #333333;
+  --color-gray: #808080;
+  --color-link: #0000ce;
 }
 
 /* ===================================================
@@ -50,12 +57,6 @@
 	テーマカラーやデザインに関する独自変数を定義します。
 =================================================== */
 :root {
-  --color-primary: #b0e0e6;
-  --color-secondary: #f59e0b;
-  --color-background: #ffffff;
-  --color-text: #333333;
-  --color-gray: #808080;
-  --color-link: #0000ce;
 }
 
 /* ===================================================

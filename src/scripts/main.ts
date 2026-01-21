@@ -6,6 +6,7 @@ import { SetGnav } from './components/setGnav';
 import { SmoothScroll } from './components/SmoothScroll';
 // 任意のモジュール
 import { initParticles } from './components/particle';
+import { setFlipSwiper, setCardsSwiper } from './components/Swiper';
 
 // loading.ts
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,8 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
   SmoothScroll.init();
   inviewScroll();
 
-  /**
+  /** ************************
    * パーティクルが浮遊する背景
-   * */
+   * ************************ */
   initParticles();
+
+  /** ************************
+   * スライダー
+   * ************************ */
+  setFlipSwiper('.js-flipSwiper');
+  setCardsSwiper('.js-cardSwiper');
 });
