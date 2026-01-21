@@ -35,6 +35,10 @@ export const PAGE_INDEX = [
         label: '上昇アニメ',
       },
       {
+        id: 'loop-h',
+        label: '横に流れる背景',
+      },
+      {
         id: 'particle',
         label: 'パーティクル',
       },

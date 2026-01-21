@@ -9,6 +9,7 @@ import GradientAnime from '@/components/ui/background/GradientAnime.astro';
 import RisingAnime from '@/components/ui/background/RisingAnime.astro';
 import TriangleDot from '@/components/ui/background/TriangleDot.astro';
 import ParticleAnime from '@/components/ui/background/ParticleAnime.astro';
+import LoopHorizon from '@/components/ui/background/LoopHorizon.astro';
 
 /**
  * 背景の表現
@@ -86,6 +87,20 @@ import ParticleAnime from '@/components/ui/background/ParticleAnime.astro';
       </Wrapper>
     </Section>
   </RisingAnime>
+
+  {
+    /*-----------------------------
+	# 横ループ
+	-----------------------------*/
+  }
+  <Section id="loop-h" top="0" bottom="0" css="bg-gray-100 md:h-screen h-[50vh] min-h-80">
+    <LoopHorizon />
+    <Wrapper css="z-1 h-full">
+      <div class="flex h-full w-full items-center justify-center">
+        <p class="text-xl font-bold md:text-3xl">横ループアニメ・写真でも可</p>
+      </div>
+    </Wrapper>
+  </Section>
 
   {
     /*-----------------------------

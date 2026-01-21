@@ -1,0 +1,65 @@
+---
+/**
+ * 背景が横向きにループ
+ * -------------------------------------
+ * @description 親は高さを固定し、position:relativeを付与
+ */
+---
+
+<div class="absolute top-0 left-0 h-full w-full overflow-hidden">
+  <div class="loop-belt">
+    <div class="loop-belt__item">
+      <div class="relative h-full w-full">
+        <div class="absolute top-[5%] left-[4%] aspect-video w-[32%] bg-yellow-300"></div>
+        <div class="absolute top-1/2 left-[24%] aspect-square w-[26%] -translate-y-1/2 bg-pink-300">
+        </div>
+        <div
+          class="absolute right-[38%] bottom-[7%] aspect-square w-[20%] -translate-y-1/2 rounded-full bg-blue-300"
+        >
+        </div>
+        <div class="absolute top-[14%] right-[15%] aspect-video w-[32%] bg-red-300"></div>
+        <div class="absolute right-[0%] bottom-[8%] aspect-video w-[24%] bg-yellow-300"></div>
+      </div>
+    </div>
+    <div class="loop-belt__item">
+      <div class="relative h-full w-full">
+        <div class="absolute top-[5%] left-[4%] aspect-video w-[32%] bg-yellow-300"></div>
+        <div class="absolute top-1/2 left-[24%] aspect-square w-[26%] -translate-y-1/2 bg-pink-300">
+        </div>
+        <div
+          class="absolute right-[38%] bottom-[7%] aspect-square w-[20%] -translate-y-1/2 rounded-full bg-blue-300"
+        >
+        </div>
+        <div class="absolute top-[14%] right-[15%] aspect-video w-[32%] bg-red-300"></div>
+        <div class="absolute right-[0%] bottom-[8%] aspect-video w-[24%] bg-yellow-300"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .loop-belt {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loop-horizontal 30s linear infinite;
+    width: 200%;
+    height: 100%;
+  }
+
+  .loop-belt__item {
+    flex-shrink: 0;
+    width: 50%;
+    height: 100%;
+  }
+
+  @keyframes loop-horizontal {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
